@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+{% block title %}Dashboard — IntelliCredit Hub{% endblock %}
+
+{% block content %}
+<div class="page">
+
+  <!-- Header -->
+  <div class="page-header">
+    <div>
+      <h1>Dashboard</h1>
+      <p>Credit appraisal pipeline overview</p>
+    </div>
+    <a href="/case/new" class="btn btn-primary">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+      New Case
+    </a>
+  </div>
+
+  <!-- Metric Cards -->
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-card-header">
+        <span class="metric-label">Active Cases</span>
+        <svg class="metric-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+      </div>
+      <p class="metric-value">0</p>
+      <p class="metric-sub">0 total processed</p>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-card-header">
+        <span class="metric-label">Avg Approval</span>
+        <svg class="metric-icon success" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+      </div>
+      <p class="metric-value">₹0</p>
+      <p class="metric-sub success">No cases yet</p>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-card-header">
+        <span class="metric-label">Auto-Approval</span>
+        <svg class="metric-icon success" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <p class="metric-value">0%</p>
+      <p class="metric-sub">0 pending review</p>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-card-header">
+        <span class="metric-label">Fraud Detection</span>
+        <svg class="metric-icon destructive" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+      </div>
+      <p class="metric-value">0%</p>
+      <p class="metric-sub">Avg — hrs</p>
+    </div>
+  </div>
+
+  <!-- Main Grid -->
+  <div class="dashboard-grid">
+    <!-- Recent Cases Table -->
+    <div class="table-wrap">
+      <div class="table-header">
+        <h2>Recent Loan Cases</h2>
+        <a href="/cases">View all →</a>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Case ID</th>
+            <th>Company</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Risk</th>
+            <th>Stage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="6">
+              <div class="empty-state">
+                <p>No loan cases yet</p>
+                <p><a href="/case/new" style="color:var(--primary)">Create the first case →</a></p>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Audit Trail -->
+    <div class="table-wrap">
+      <div class="table-header">
+        <h2>Audit Trail</h2>
+        <a href="/audit">Full log →</a>
+      </div>
+      <div class="empty-state">
+        <p>No audit events yet</p>
+        <p>Activity will appear here as cases are processed</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

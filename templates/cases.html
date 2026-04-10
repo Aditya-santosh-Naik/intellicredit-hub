@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+{% block title %}Loan Cases — IntelliCredit Hub{% endblock %}
+
+{% block content %}
+<div class="page">
+
+  <!-- Header -->
+  <div class="page-header">
+    <div>
+      <h1>Loan Cases</h1>
+      <p>All credit appraisal cases</p>
+    </div>
+    <a href="/case/new" class="btn btn-primary">+ New Case</a>
+  </div>
+
+  <!-- Table -->
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Case ID</th>
+          <th>Company</th>
+          <th>Sector</th>
+          <th>Loan Amount</th>
+          <th>Composite Score</th>
+          <th>Status</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody id="cases-tbody">
+        <tr>
+          <td colspan="7">
+            <div class="empty-state">
+              <span class="spinner" style="border-top-color:var(--primary); margin: 0 auto; display: block"></span>
+              <p style="margin-top:12px">Loading loan cases...</p>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  function formatCurrency(amount) {
+    if (!amount) return '—';
+    if (amount >= 10000000) return '₹' + (amount / 10000000).toFixed(1) + ' Cr';
+    if (amount >= 100000)   return '₹' + (amount / 100000).toFixed(1) + ' L';
+    return '₹' + amount.toLocaleString('en-IN');
+  }
+
+  function getStatusBadge(status) {
+    if (!status) return `<span class="status-badge" style="background:var(--muted);color:var(--muted-fg)">UNKNOWN</span>`;
+    const s = status.toUpperCase();
+    if (s === 'REPORT_GENERATED') return `<span class="status-badge status-approved">COMPLETED</span>`;
+    if (s === 'DOCUMENTS_UPLOADED') return `<span class="status-badge status-processing">PROCESSING</span>`;
+    if (s === 'ENTITY_COMPLETED') return `<span class="status-badge status-review">PENDING DOCS</span>`;
+    return `<span class="status-badge status-review">${s}</span>`;
+  }
+
+  async function loadCases() {
+    const tbody = document.getElementById('cases-tbody');
+    try {
+      const res = await fetch('/api/cases');
+      const data = await res.json();
+      
+      if (!data || data.length === 0) {
+        tbody.innerHTML = `
+        <tr>
+          <td colspan="7">
+            <div class="empty-state">
+              <p>No loan cases found</p>
+              <p><a href="/case/new" style="color:var(--primary)">Start a new credit appraisal →</a></p>
+            </div>
+          </td>
+        </tr>`;
+        return;
+      }
+      
+      tbody.innerHTML = data.map(c => `
+        <tr style="cursor:pointer" onclick="window.location.href='/case/new?case_id=${c.case_id}'">
+          <td class="font-semibold" style="color:var(--primary)">${c.case_id}</td>
+          <td class="font-medium">${c.company || '—'}</td>
+          <td>${c.sector || '—'}</td>
+          <td class="mono">${formatCurrency(c.loan_amount)}</td>
+          <td>${c.composite_score ? `<span class="mono font-semibold" style="color:${c.composite_score >= 70 ? 'var(--success)' : (c.composite_score >= 50 ? 'var(--warning)' : 'var(--destructive)')}">${c.composite_score}</span> / 100` : '—'}</td>
+          <td>${getStatusBadge(c.status)}</td>
+          <td class="mono text-muted text-xs">${new Date(c.updated_at || c.submitted_at || c.created_at).toLocaleString()}</td>
+        </tr>
+      `).join('');
+    } catch (e) {
+      console.error('Failed to load cases', e);
+      tbody.innerHTML = `<tr><td colspan="7" class="text-center" style="color:var(--red)">Failed to load cases from database.</td></tr>`;
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', loadCases);
+</script>
+
+</div>
+{% endblock %}

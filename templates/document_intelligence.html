@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% block title %}Document Intelligence - Stage 2{% endblock %}
+
+{% block content %}
+<!-- Include Tailwind just for this new module as requested -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    navy: {
+                        900: '#0B132B',
+                        800: '#1C2541'
+                    },
+                    primary: '#4284F4',
+                    success: '#0F9D58',
+                    warning: '#F4B400',
+                    danger: '#DB4437'
+                }
+            }
+        }
+    }
+</script>
+
+<div class="p-8 max-w-7xl mx-auto font-sans" style="background-color: var(--bg); color: var(--fg); min-height: 100vh;">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-8 border-b pb-4">
+        <div>
+            <h1 class="text-2xl font-semibold tracking-tight text-gray-900">Document Intelligence Engine</h1>
+            <p class="text-sm text-gray-500 mt-1">Stage 2/4: AI-driven financial document classification and extraction.</p>
+        </div>
+        <div class="flex items-center gap-4 bg-white px-4 py-2 rounded-lg border border-gray-200 shadow-sm">
+            <div class="text-sm font-medium text-gray-600">Pipeline Progress</div>
+            <div class="flex items-center gap-2 text-sm font-bold text-primary">
+                <span id="progress-counter">0 / 5</span> Processed
+            </div>
+            <div class="w-32 bg-gray-200 rounded-full h-2.5 ml-2">
+                <div id="progress-bar" class="bg-blue-600 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Box for Errors -->
+    <div id="alert-box" class="hidden mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-md shadow-sm">
+        <div class="flex">
+            <div class="flex-shrink-0">
+                <svg class="h-5 w-5 text-red-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                </svg>
+            </div>
+            <div class="ml-3">
+                <p id="alert-message" class="text-sm text-red-700 font-medium"></p>
+            </div>
+            <button onclick="document.getElementById('alert-box').classList.add('hidden')" class="ml-auto text-red-500 hover:text-red-700">
+                &times;
+            </button>
+        </div>
+    </div>
+
+    <!-- Upload Section (Drag & Drop) -->
+    <div class="bg-white border-2 border-dashed border-gray-300 rounded-lg p-10 text-center mb-8 transition-colors hover:bg-gray-50 hover:border-primary cursor-pointer" id="drop-zone" onclick="document.getElementById('file-upload').click()">
+        <svg class="mx-auto h-12 w-12 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+        </svg>
+        <h3 class="mt-2 text-sm font-medium text-gray-900">Upload Financial Documents</h3>
+        <p class="mt-1 text-xs text-gray-500">Drag and drop files here, or click to browse.</p>
+        <p class="mt-2 text-xs font-mono text-gray-400">Supported formats: PDF, XLSX, XLS, PNG, JPG, TIFF (Max: 50MB)</p>
+        <input id="file-upload" type="file" class="hidden" accept=".pdf,.xlsx,.xls,.png,.jpg,.jpeg,.tiff" />
+    </div>
+
+    <!-- Documents Table -->
+    <div class="bg-white shadow-sm rounded-lg border border-gray-200 overflow-hidden">
+        <div class="px-6 py-4 border-b border-gray-200 bg-gray-50 flex justify-between items-center">
+            <h2 class="text-lg font-medium text-gray-900">Required Documents</h2>
+            <span class="text-xs font-mono bg-blue-100 text-blue-800 px-2 py-1 rounded hidden" id="uploading-spinner">
+                Wait... AI Scanning & Classifying Document...
+            </span>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200 text-sm">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Document Type</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">File Details</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">AI Classification</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Fingerprint (SHA-256)</th>
+                        <th class="px-6 py-3 text-right text-xs font-semibold text-gray-500 uppercase tracking-wider">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="documents-tbody" class="bg-white divide-y divide-gray-200">
+                    <!-- Rows rendered by JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Action Bar -->
+    <div class="mt-8 flex justify-end">
+        <button id="proceed-btn" disabled class="bg-blue-600 text-white px-6 py-2.5 rounded-lg font-medium text-sm shadow-sm hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all">
+            Proceed &rarr; Financial Extraction
+        </button>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+{% endblock %}

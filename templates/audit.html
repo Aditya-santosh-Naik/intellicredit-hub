@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block title %}Audit Trail — IntelliCredit Hub{% endblock %}
+
+{% block content %}
+<div class="page">
+
+  <!-- Header -->
+  <div class="page-header">
+    <div>
+      <h1>Audit Trail</h1>
+      <p>Complete system action log — tamper-proof audit entries</p>
+    </div>
+  </div>
+
+  <!-- Audit Table -->
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Timestamp</th>
+          <th>Action</th>
+          <th>Case ID</th>
+          <th>User Role</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="5">
+            <div class="empty-state">
+              <p>No audit events yet</p>
+              <p>System events will appear here automatically as cases are processed</p>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+{% endblock %}
