@@ -61,6 +61,10 @@ def settings():
 def security():
     return render_template('security.html', active='security')
 
+@app.route('/about')
+def about():
+    return render_template('about.html', active='about')
+
 @app.route('/document_intelligence')
 def document_intelligence():
     return render_template('document_intelligence.html', active='document_intelligence')

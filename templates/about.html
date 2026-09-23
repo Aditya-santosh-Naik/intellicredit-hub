@@ -1,0 +1,465 @@
+{% extends "layout.html" %}
+{% block title %}About — IntelliCredit Hub{% endblock %}
+
+{% block content %}
+<div class="page about-page">
+
+  <!-- Hero Section -->
+  <div class="about-hero">
+    <div class="about-hero-glow"></div>
+    <div class="about-hero-content">
+      <div class="about-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 010-5H6"/><path d="M18 9h1.5a2.5 2.5 0 000-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0012 0V2Z"/></svg>
+        IIT Hyderabad Hackathon Solution
+      </div>
+      <h1 class="about-title">IntelliCredit <span class="about-title-accent">Hub</span></h1>
+      <p class="about-subtitle">
+        AI-Powered Enterprise Credit Appraisal Platform — automating the entire bank credit management lifecycle 
+        from entity onboarding to investment report generation using Machine Learning, NLP, and intelligent data triangulation.
+      </p>
+      <div class="about-hero-stats">
+        <div class="about-stat">
+          <span class="about-stat-value">10</span>
+          <span class="about-stat-label">Pipeline Stages</span>
+        </div>
+        <div class="about-stat-divider"></div>
+        <div class="about-stat">
+          <span class="about-stat-value">3</span>
+          <span class="about-stat-label">ML Models</span>
+        </div>
+        <div class="about-stat-divider"></div>
+        <div class="about-stat">
+          <span class="about-stat-value">5C</span>
+          <span class="about-stat-label">Risk Framework</span>
+        </div>
+        <div class="about-stat-divider"></div>
+        <div class="about-stat">
+          <span class="about-stat-value">21+</span>
+          <span class="about-stat-label">Sectors Covered</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Problem Statement -->
+  <section class="about-section">
+    <div class="about-section-header">
+      <div class="about-section-icon about-icon-problem">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <div>
+        <h2>The Problem</h2>
+        <p class="about-section-desc">Why traditional credit appraisal needs a revolution</p>
+      </div>
+    </div>
+    <div class="about-card-grid">
+      <div class="about-card">
+        <div class="about-card-icon" style="background: hsl(0, 72%, 95%); color: hsl(0, 72%, 51%);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Slow Manual Processes</h3>
+        <p>Traditional credit evaluation requires weeks of manual document review, data collection from disparate sources, and subjective risk assessment — delaying decisions and costing operational efficiency.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon" style="background: hsl(38, 92%, 95%); color: hsl(38, 92%, 40%);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3>Fraud & Inconsistency Risk</h3>
+        <p>Without automated verification against government databases like MCA21, fraudulent CINs, PANs, and falsified financial data can slip through human review undetected.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon" style="background: hsl(270, 60%, 95%); color: hsl(270, 60%, 50%);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h3>Scattered Data Sources</h3>
+        <p>Credit analysts must manually gather intelligence from news, court records (Indian Kanoon), corporate registries (Zaubacorp), and financial screeners — a time-consuming and error-prone process.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution & How It Works -->
+  <section class="about-section">
+    <div class="about-section-header">
+      <div class="about-section-icon about-icon-solution">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div>
+        <h2>Our Solution — The 10-Stage Pipeline</h2>
+        <p class="about-section-desc">End-to-end automated credit appraisal in 10 intelligent stages</p>
+      </div>
+    </div>
+
+    <div class="about-pipeline">
+      <div class="about-pipeline-line"></div>
+
+      <div class="about-pipeline-stage">
+        <div class="about-stage-marker">1</div>
+        <div class="about-stage-content">
+          <h4>Entity Onboarding</h4>
+          <p>Captures company identity — name, CIN, PAN, sector, loan amount, and annual turnover. Real-time field-level validation ensures data integrity from the first keystroke.</p>
+        </div>
+      </div>
+
+      <div class="about-pipeline-stage">
+        <div class="about-stage-marker">2</div>
+        <div class="about-stage-content">
+          <h4>MCA21 Verification</h4>
+          <p>Cross-verifies the entity's CIN and PAN against the Ministry of Corporate Affairs registry database using a trained ML lookup model. Detects mismatches via fuzzy name matching (SequenceMatcher, 60% similarity threshold) and flags spoofed registrations.</p>
+        </div>
+      </div>
+
+      <div class="about-pipeline-stage">
+        <div class="about-stage-marker">3</div>
+        <div class="about-stage-content">
+          <h4>Document Upload & Security</h4>
+          <p>Accepts PDF, Excel, and image files with multi-layer security: MIME type validation (filetype library), SHA-256 hash deduplication, malicious payload scanning, and password-protected PDF detection. Maximum 50 MB per file.</p>
+        </div>
+      </div>
+
+      <div class="about-pipeline-stage">
+        <div class="about-stage-marker">4</div>
+        <div class="about-stage-content">
+          <h4>AI Document Classification</h4>
+          <p>Automatically classifies uploaded documents into 5 categories — ALM Statement, Shareholding Pattern, Borrowing Profile, Annual Report, and Portfolio Performance — using weighted keyword matching with spaCy NLP, achieving asymptotic confidence scoring.</p>
+        </div>
+      </div>
+
+      <div class="about-pipeline-stage">
+        <div class="about-stage-marker">5</div>
+        <div class="about-stage-content">
+          <h4>Financial Data Extraction</h4>
+          <p>Parses financial metrics (Revenue, EBITDA, PAT, Debt/Equity, DSCR, Interest Coverage, Current Ratio) from documents using regex-based text extraction with Indian currency suffix handling (Cr, L, K). When OCR fails, smart estimation derives plausible figures from turnover and loan amount using industry benchmark ratios (NBFC/Corporate standards).</p>
+        </div>
+      </div>
+
+      <div class="about-pipeline-stage">
+        <div class="about-stage-marker">6</div>
+        <div class="about-stage-content">
+          <h4>Data Intelligence Agent</h4>
+          <p>An autonomous orchestrator that collects intelligence from 3 domains using a waterfall fallback strategy:</p>
+          <ul class="about-stage-list">
+            <li><strong>News Sentiment:</strong> GNews → Google News RSS → Mock API. Headlines scored with VADER sentiment analysis.</li>
+            <li><strong>Corporate Data:</strong> Zaubacorp (MCA scraper) → Screener.in → Mock API. Extracts directors, CIN, compliance status, and promoter holding.</li>
+            <li><strong>Litigation Records:</strong> Indian Kanoon (court records) → Google Search → Mock API. Classifies cases as Criminal, Insolvency, Regulatory, Tax, or Civil.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="about-pipeline-stage">
+        <div class="about-stage-marker">7</div>
+        <div class="about-stage-content">
+          <h4>Data Triangulation</h4>
+          <p>Cross-validates financial data against intelligence findings to detect contradictions. Flags when high reported revenue contradicts negative market sentiment, when negative EBITDA compounds with active litigation, or when thin profit margins signal operational stress.</p>
+        </div>
+      </div>
+
+      <div class="about-pipeline-stage">
+        <div class="about-stage-marker">8</div>
+        <div class="about-stage-content">
+          <h4>Explainable 5C Risk Scoring</h4>
+          <p>Calculates a composite credit score (0–100) using the classic 5 Cs of Credit framework — <strong>Character</strong> (25%), <strong>Capacity</strong> (25%), <strong>Capital</strong> (20%), <strong>Collateral</strong> (15%), and <strong>Conditions</strong> (15%). Each dimension is scored independently from financial ratios and intelligence data, producing fully explainable decisions: Approve (≥75), Approve with Conditions (≥60), Review (≥45), or Reject (&lt;45).</p>
+        </div>
+      </div>
+
+      <div class="about-pipeline-stage">
+        <div class="about-stage-marker">9</div>
+        <div class="about-stage-content">
+          <h4>SWOT Generation</h4>
+          <p>Dynamically generates a Strengths, Weaknesses, Opportunities, and Threats analysis based on actual financial metrics and intelligence signals — not static templates. Each SWOT item cites specific numbers (e.g., "DSCR of 1.85x indicates strong repayment capacity").</p>
+        </div>
+      </div>
+
+      <div class="about-pipeline-stage">
+        <div class="about-stage-marker">10</div>
+        <div class="about-stage-content">
+          <h4>Investment Report Generation</h4>
+          <p>Compiles a downloadable PDF report using ReportLab, containing the executive summary, system recommendation, financial health table, triangulation alerts, and SWOT analysis — ready for committee review.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ML Models -->
+  <section class="about-section">
+    <div class="about-section-header">
+      <div class="about-section-icon about-icon-ml">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      </div>
+      <div>
+        <h2>Machine Learning Models</h2>
+        <p class="about-section-desc">Trained on 500+ Indian companies across 21 sectors</p>
+      </div>
+    </div>
+
+    <div class="about-ml-grid">
+      <div class="about-ml-card">
+        <div class="about-ml-badge rf">Supervised</div>
+        <h3>Random Forest Classifier</h3>
+        <p>500-tree ensemble trained with Leave-One-Out cross-validation for sector classification from CIN/PAN structural features. Uses 13 engineered features: listing status, NIC code, state, incorporation year, company type, serial number, PAN entity type, alpha encoding, and validity flags.</p>
+        <div class="about-ml-meta">
+          <span>scikit-learn</span>
+          <span>Balanced class weights</span>
+          <span>LOO-CV validated</span>
+        </div>
+      </div>
+
+      <div class="about-ml-card">
+        <div class="about-ml-badge iso">Unsupervised</div>
+        <h3>Isolation Forest</h3>
+        <p>300-estimator anomaly detector with 4% contamination rate, designed to flag spoofed or structurally unusual CIN/PAN patterns that deviate from the learned distribution of legitimate Indian company registrations.</p>
+        <div class="about-ml-meta">
+          <span>Anomaly Detection</span>
+          <span>300 estimators</span>
+          <span>4% contamination</span>
+        </div>
+      </div>
+
+      <div class="about-ml-card">
+        <div class="about-ml-badge km">Clustering</div>
+        <h3>K-Means Clustering</h3>
+        <p>Groups companies into sector-aware clusters for pattern recognition and cohort-based risk benchmarking. Cluster count derived dynamically: min(n_sectors, n_companies/6).</p>
+        <div class="about-ml-meta">
+          <span>Pattern Recognition</span>
+          <span>15 init runs</span>
+          <span>Dynamic k</span>
+        </div>
+      </div>
+
+      <div class="about-ml-card">
+        <div class="about-ml-badge dl">Deep Learning</div>
+        <h3>ANN (Dense Neural Network)</h3>
+        <p>Optional secondary classifier using a 3-hidden-layer architecture (256→128→64 neurons) with BatchNormalization and Dropout. 5-fold Stratified cross-validated with early stopping. Activated when TensorFlow is available.</p>
+        <div class="about-ml-meta">
+          <span>TensorFlow/Keras</span>
+          <span>5-Fold CV</span>
+          <span>Early Stopping</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="about-section">
+    <div class="about-section-header">
+      <div class="about-section-icon about-icon-tech">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
+      <div>
+        <h2>Technology Stack</h2>
+        <p class="about-section-desc">Built with production-grade, open-source technologies</p>
+      </div>
+    </div>
+
+    <div class="about-tech-grid">
+      <div class="about-tech-category">
+        <h4>Backend</h4>
+        <div class="about-tech-pills">
+          <span class="about-tech-pill">Python</span>
+          <span class="about-tech-pill">Flask</span>
+          <span class="about-tech-pill">FastAPI</span>
+          <span class="about-tech-pill">MongoDB</span>
+          <span class="about-tech-pill">Uvicorn</span>
+        </div>
+      </div>
+      <div class="about-tech-category">
+        <h4>Frontend</h4>
+        <div class="about-tech-pills">
+          <span class="about-tech-pill">HTML5</span>
+          <span class="about-tech-pill">CSS3</span>
+          <span class="about-tech-pill">Vanilla JS</span>
+          <span class="about-tech-pill">Jinja2</span>
+        </div>
+      </div>
+      <div class="about-tech-category">
+        <h4>Machine Learning</h4>
+        <div class="about-tech-pills">
+          <span class="about-tech-pill">scikit-learn</span>
+          <span class="about-tech-pill">TensorFlow</span>
+          <span class="about-tech-pill">spaCy</span>
+          <span class="about-tech-pill">NLTK / VADER</span>
+          <span class="about-tech-pill">pandas</span>
+        </div>
+      </div>
+      <div class="about-tech-category">
+        <h4>Document Processing</h4>
+        <div class="about-tech-pills">
+          <span class="about-tech-pill">pdfplumber</span>
+          <span class="about-tech-pill">Tesseract OCR</span>
+          <span class="about-tech-pill">Pillow</span>
+          <span class="about-tech-pill">openpyxl</span>
+          <span class="about-tech-pill">ReportLab</span>
+        </div>
+      </div>
+      <div class="about-tech-category">
+        <h4>Data Intelligence</h4>
+        <div class="about-tech-pills">
+          <span class="about-tech-pill">GNews</span>
+          <span class="about-tech-pill">BeautifulSoup4</span>
+          <span class="about-tech-pill">Requests</span>
+          <span class="about-tech-pill">lxml</span>
+        </div>
+      </div>
+      <div class="about-tech-category">
+        <h4>Security</h4>
+        <div class="about-tech-pills">
+          <span class="about-tech-pill">SHA-256 Hashing</span>
+          <span class="about-tech-pill">MIME Validation</span>
+          <span class="about-tech-pill">Rate Limiting</span>
+          <span class="about-tech-pill">filetype</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture -->
+  <section class="about-section">
+    <div class="about-section-header">
+      <div class="about-section-icon about-icon-arch">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <div>
+        <h2>System Architecture</h2>
+        <p class="about-section-desc">Dual-server architecture with resilient data sourcing</p>
+      </div>
+    </div>
+
+    <div class="about-arch-grid">
+      <div class="about-arch-card">
+        <div class="about-arch-label">Flask Server (Port 5000)</div>
+        <p>Serves the frontend UI, handles document uploads, executes financial extraction, runs the Data Intelligence Agent, and performs risk scoring. All HTML templates rendered server-side via Jinja2.</p>
+        <div class="about-arch-routes">
+          <code>/</code> <code>/cases</code> <code>/case/new</code> <code>/audit</code> <code>/risk</code> <code>/reports</code> <code>/about</code>
+        </div>
+      </div>
+      <div class="about-arch-card">
+        <div class="about-arch-label">FastAPI Server (Port 8000)</div>
+        <p>RESTful data layer with Pydantic validation, auto-generated OpenAPI docs at <code>/docs</code>, and CORS-enabled communication with the Flask frontend. Handles case CRUD operations and MCA verification.</p>
+        <div class="about-arch-routes">
+          <code>/health</code> <code>/api/verify-mca</code> <code>/api/submit-case</code> <code>/api/cases</code>
+        </div>
+      </div>
+      <div class="about-arch-card">
+        <div class="about-arch-label">MongoDB</div>
+        <p>Local document store (no authentication for dev) with collections for cases, schemas, audit logs, and document metadata. Auto-generates sequential case IDs (LC-000001 format).</p>
+        <div class="about-arch-routes">
+          <code>intellicredit.cases</code> <code>intellicredit.schema</code> <code>intellicredit.documents</code>
+        </div>
+      </div>
+      <div class="about-arch-card">
+        <div class="about-arch-label">Waterfall Data Sources</div>
+        <p>Each intelligence category uses a 3-tier resilient fetching strategy: primary live source → secondary scraper → mock API fallback. Guarantees the pipeline never blocks even when external APIs are unavailable.</p>
+        <div class="about-arch-routes">
+          <code>GNews</code> <code>Zaubacorp</code> <code>Screener.in</code> <code>Indian Kanoon</code> <code>Google RSS</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="about-section">
+    <div class="about-section-header">
+      <div class="about-section-icon about-icon-features">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div>
+        <h2>Key Features</h2>
+        <p class="about-section-desc">What makes IntelliCredit Hub enterprise-ready</p>
+      </div>
+    </div>
+    <div class="about-features-grid">
+      <div class="about-feature">
+        <div class="about-feature-dot" style="background: var(--primary);"></div>
+        <div>
+          <strong>Multi-Format Document Ingestion</strong>
+          <p>Supports PDF, XLSX, XLS, PNG, JPG, and TIFF with automatic text extraction using pdfplumber, Tesseract OCR, and pandas.</p>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-dot" style="background: var(--success);"></div>
+        <div>
+          <strong>Smart Financial Estimation</strong>
+          <p>When document parsing fails, derives company-specific financial estimates using industry benchmark ratios — so two different companies always get different numbers.</p>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-dot" style="background: var(--warning);"></div>
+        <div>
+          <strong>Explainable AI Decisions</strong>
+          <p>Every risk score is decomposed into 5 interpretable dimensions with clear reasoning, enabling auditors to understand exactly why a decision was made.</p>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-dot" style="background: hsl(270, 60%, 50%);"></div>
+        <div>
+          <strong>Real-Time MCA Verification</strong>
+          <p>Instant CIN/PAN cross-check against a 500+ company ML registry with fuzzy name matching to catch typos and abbreviations.</p>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-dot" style="background: hsl(190, 70%, 45%);"></div>
+        <div>
+          <strong>Confidence-Aware Classification</strong>
+          <p>AI document classifier reports confidence scores using an asymptotic formula (capped at 99%), automatically routing low-confidence documents for manual review.</p>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-dot" style="background: var(--destructive);"></div>
+        <div>
+          <strong>Complete Audit Trail</strong>
+          <p>Every action — upload, verification, extraction, scoring — is logged with timestamps, analyst ID, and entity ID for full regulatory compliance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Info -->
+  <section class="about-section">
+    <div class="about-section-header">
+      <div class="about-section-icon about-icon-info">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      </div>
+      <div>
+        <h2>Project Information</h2>
+        <p class="about-section-desc">Origins, purpose, and contributors</p>
+      </div>
+    </div>
+
+    <div class="about-info-grid">
+      <div class="about-info-card">
+        <h4>🎯 Purpose</h4>
+        <p>Developed as a comprehensive solution to a problem statement presented at the <strong>IIT Hyderabad Hackathon</strong>, addressing the challenges of automating bank credit management and financial data extraction using AI/ML. The platform aims to reduce credit appraisal turnaround from weeks to minutes while maintaining institutional-grade accuracy and auditability.</p>
+      </div>
+      <div class="about-info-card">
+        <h4>📂 Open Source</h4>
+        <p>IntelliCredit Hub is open source and available on <a href="https://github.com/Aditya-santosh-Naik/intellicredit-hub" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: underline;">GitHub</a>. Contributions, issues, and feature requests are welcome. The project is structured for easy extension — new data sources can be added by implementing the waterfall pattern, and new ML models can be plugged into the training pipeline.</p>
+      </div>
+      <div class="about-info-card">
+        <h4>🏗️ Getting Started</h4>
+        <div class="about-code-block">
+          <code>
+            <span class="code-comment"># Clone and setup</span><br>
+            git clone https://github.com/Aditya-santosh-Naik/intellicredit-hub.git<br>
+            cd intellicredit-hub<br>
+            pip install -r requirements.txt<br><br>
+            <span class="code-comment"># Train ML models</span><br>
+            python train_model.py<br><br>
+            <span class="code-comment"># Launch the platform</span><br>
+            python app.py
+          </code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="about-footer">
+    <div class="about-footer-logo">
+      <div class="sidebar-logo-icon" style="width:28px;height:28px;font-size:11px;">IC</div>
+      <span>IntelliCredit Hub</span>
+    </div>
+    <p>Built with ❤️ for the IIT Hyderabad Hackathon</p>
+    <p class="about-footer-sub">© 2026 IntelliCredit Hub. AI-Powered Credit Intelligence.</p>
+  </div>
+
+</div>
+{% endblock %}
